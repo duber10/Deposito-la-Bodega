@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materiales La Bodega</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff5e6;
+      color: #333;
+    }
+
+    /* Pantalla de Bienvenida */
+    .bienvenida {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 102, 0, 0.95);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      color: white;
+      font-size: 2rem;
+      text-align: center;
+      animation: fadeOut 2s ease-in-out 3s forwards;
+    }
+
+    .bienvenida img {
+      width: 650px; /* <-- aquí cambias el tamaño del logo */
+      margin-bottom: 40px;
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    /* Encabezado */
+    header {
+      background-color: #ff6600;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 40px;
+      flex-wrap: wrap;
+    }
+
+    header .logo {
+      width: 80px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Buscador */
+    .buscador {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .buscador input {
+      width: 60%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 2px solid #ff6600;
+      border-radius: 5px;
+    }
+
+    /* Productos */
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .card h3 {
+      margin: 15px 0 10px;
+      color: #cc3300;
+    }
+
+    .card p {
+      font-weight: bold;
+    }
+
+    .card button {
+      background: #25d366;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .card button:hover {
+      background: #128c7e;
+    }
+
+    /* Botones fijos (carrito y whatsapp) */
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 10000;
+    }
+
+    .floating-buttons button {
+      background: #1aff00;
+      border: none;
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    .floating-buttons img {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* Burbuja de cantidad en el carrito */
+    .cart-count {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: red;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: bold;
+      border-radius: 50%;
+      padding: 2px 6px;
+    }
+
+    /* Modal del carrito */
+    .carrito-modal {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 320px;
+      max-height: 400px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      overflow-y: auto;
+      display: none;
+      padding: 15px;
+      z-index: 10001;
+    }
+
+    .carrito-modal h2 {
+      margin-top: 0;
+      color: #ff6600;
+    }
+
+    .cerrar-carrito {
+  
+      background: rgb(223, 223, 223);
+      color: rgb(179, 22, 22);
+      border: none;
+      padding: 2px 8px;
+      margin-left: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+  }
+
+    .cerrar-carrito:hover {
+  background: darkred;
+  }
+
+
+    .carrito-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 0;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    .carrito-item input {
+      width: 60px;
+      padding: 5px;
+      text-align: center;
+    }
+
+    .carrito-item button {
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .carrito-item button:hover {
+      background: darkred;
+    }
+
+    .carrito-total {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .carrito-pagar {
+      background: #25d366;
+      color: white;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .carrito-pagar:hover {
+      background: #128c7e;
+    }
+
+    /* Pie de página */
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    footer a {
+      color: #ff6600;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Pantalla de Bienvenida -->
+  <div class="bienvenida">
+    <img src="img/logo.jpg" alt="Logo">
+    <p>BIENVENIDO A <strong>MATERIALES LA BODEGA</strong></p>
+  </div>
+
+  <!-- Encabezado -->
+  <header>
+    <img src="img/logo.jpg" alt="Logo" class="logo">
+    <h1>Materiales la Bodega</h1>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- Buscador -->
+  <div class="buscador">
+    <input type="text" id="buscar" placeholder="Buscar productos...">
+  </div>
+
+  <!-- Productos -->
+  <section id="productos" class="productos">
+    <div class="card" data-nombre="martillo profesional" data-precio="25000">
+      <img src="img/martillo.jpeg" alt="Martillo">
+      <h3>Martillo Profesional</h3>
+      <p>$25,000</p>
+      <button onclick="agregarAlCarrito('Martillo Profesional', 25000)">Añadir al carrito</button>
+    </div>
+
+    <div class="card" data-nombre="cemento gris" data-precio="40000">
+      <img src="img/cemento.jpeg" alt="Cemento">
+      <h3>Cemento Gris</h3>
+      <p>$40,000</p>
+      <button onclick="agregarAlCarrito('Cemento Gris', 40000)">Añadir al carrito</button>
+    </div>
+
+    <div class="card" data-nombre="pintura blanca" data-precio="35000">
+      <img src="img/pintura2.png" alt="Pintura">
+      <h3>Pintura Blanca</h3>
+      <p>$35,000</p>
+      <button onclick="agregarAlCarrito('Pintura Blanca', 35000)">Añadir al carrito</button>
+    </div>
+  </section>
+
+  <!-- Botones flotantes -->
+  <div class="floating-buttons">
+    <button onclick="toggleCarrito()" style="position: relative;">
+      <img src="img/compra.png" alt="Carrito">
+      <span id="cart-count" class="cart-count" style="display:none;">0</span>
+    </button>
+    <button onclick="abrirWhatsApp()">
+      <img src="img/whatsapp.png" alt="WhatsApp">
+    </button>
+  </div>
+
+  <!-- Modal del carrito -->
+<div id="carritoModal" class="carrito-modal">
+  <h2>
+    Carrito de Compras 
+    <button class="cerrar-carrito" onclick="toggleCarrito()">—</button>
+  </h2>
+  <div id="carrito-items"></div>
+  <div class="carrito-total" id="carrito-total">Total: $0</div>
+  <button class="carrito-pagar" onclick="pagarCarrito()">Pagar</button>
+</div>
+
+
+  <!-- Pie de página -->
+  <footer id="contacto">
+    <p><strong>📍 Dirección:</strong> Km 5 Vía Rionegro Aeropuerto, Sector Las Delicias</p>
+    <p><strong>📞 Teléfono:</strong> 3214871546</p>
+    <p><strong>✉️ Correo:</strong> materialeslabodega@gmail.com</p>
+    <p>
+      🌐 Síguenos en 
+      <a href="https://facebook.com" target="_blank">Facebook</a> | 
+      <a href="https://instagram.com" target="_blank">Instagram</a> | 
+      <a href="https://wa.me/573214871546" target="_blank">WhatsApp</a>
+    </p>
+  </footer>
+
+  <script>
+    let carrito = [];
+
+    // Función para agregar producto
+    function agregarAlCarrito(nombre, precio) {
+      let item = carrito.find(p => p.nombre === nombre);
+      if (item) {
+        item.cantidad++;
+      } else {
+        carrito.push({ nombre, precio, cantidad: 1 });
+      }
+      actualizarCarrito();
+    }
+
+    // Mostrar carrito
+    function toggleCarrito() {
+      let modal = document.getElementById("carritoModal");
+      modal.style.display = modal.style.display === "block" ? "none" : "block";
+    }
+
+    // Eliminar producto
+    function eliminarProducto(nombre) {
+      carrito = carrito.filter(p => p.nombre !== nombre);
+      actualizarCarrito();
+    }
+
+    // Actualizar cantidad desde input
+    function cambiarCantidad(nombre, nuevaCantidad) {
+      let item = carrito.find(p => p.nombre === nombre);
+      if (item) {
+        item.cantidad = parseInt(nuevaCantidad) || 1;
+        actualizarCarrito();
+      }
+    }
+
+    // Actualizar carrito
+    function actualizarCarrito() {
+      let itemsContainer = document.getElementById("carrito-items");
+      let total = 0;
+      let count = 0;
+      itemsContainer.innerHTML = "";
+
+      carrito.forEach(p => {
+        total += p.precio * p.cantidad;
+        count += p.cantidad;
+
+        itemsContainer.innerHTML += `
+          <div class="carrito-item">
+            <span>${p.nombre} - $${p.precio}</span>
+            <input type="number" min="1" value="${p.cantidad}" onchange="cambiarCantidad('${p.nombre}', this.value)">
+            <button onclick="eliminarProducto('${p.nombre}')">Eliminar</button>
+          </div>
+        `;
+      });
+
+      document.getElementById("carrito-total").innerText = "Total: $" + total.toLocaleString();
+      document.getElementById("cart-count").innerText = count;
+      document.getElementById("cart-count").style.display = count > 0 ? "block" : "none";
+    }
+
+    // Función pagar redirige a WhatsApp
+    function pagarCarrito() {
+      let telefono = "573214871546";
+      let mensaje = "Hola, quiero comprar lo siguiente:\n\n";
+      let total = 0;
+
+      carrito.forEach(p => {
+        mensaje += `${p.nombre} (x${p.cantidad}) - $${(p.precio * p.cantidad).toLocaleString()}\n`;
+        total += p.precio * p.cantidad;
+      });
+
+      mensaje += `\nTotal: $${total.toLocaleString()}`;
+      let url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, "_blank");
+    }
+
+    // Función WhatsApp general
+    function abrirWhatsApp() {
+      let telefono = "573214871546";
+      let mensaje = "Hola, tengo una duda sobre los productos.";
+      let url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, "_blank");
+    }
+
+    // Buscador
+    document.getElementById("buscar").addEventListener("keyup", function() {
+      let filtro = this.value.toLowerCase();
+      let productos = document.querySelectorAll(".card");
+      
+      productos.forEach(function(card) {
+        let nombre = card.getAttribute("data-nombre");
+        if (nombre.includes(filtro)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
