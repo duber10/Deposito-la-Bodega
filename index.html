@@ -3,14 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Materiales La Bodega</title>
+  <title>Materiales La Bodega - Materiales de Construcción en Rionegro</title>
+  <meta name="description" content="Materiales de construcción de calidad en Rionegro. Cemento, herramientas, pinturas y más. Entrega a domicilio.">
+  <meta name="keywords" content="materiales construcción, cemento, herramientas, pintura, Rionegro, Antioquia">
+  <!-- Schema.org markup for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HardwareStore",
+    "name": "Materiales La Bodega",
+    "description": "Materiales de construcción de calidad en Rionegro, Antioquia",
+    "url": "https://materialeslabodega.com",
+    "telephone": "+57-312-616-6288",
+    "email": "materialeslabodega9@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Km 5 Vía Rionegro Aeropuerto, Sector Las Delicias",
+      "addressLocality": "Rionegro",
+      "addressRegion": "Antioquia",
+      "addressCountry": "CO"
+    },
+    "openingHours": [
+      "Mo-Fr 07:00-18:00",
+      "Sa 07:00-16:00",
+      "Su 08:00-14:00"
+    ],
+    "priceRange": "$$",
+    "image": "img/logo.jpg",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "6.1533",
+      "longitude": "-75.3742"
+    }
+  }
+  </script>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-primary: #ff6600;
+      --color-primary-dark: #e55a00;
+      --color-secondary: #25d366;
+      --color-secondary-dark: #128c7e;
+      --color-accent: #cc3300;
+      --color-text: #333;
+      --color-light: #f5f5f5;
+      --color-white: #ffffff;
+      --color-gray: #666;
+      --color-dark: #333;
+      --shadow: 0 5px 15px rgba(0,0,0,0.1);
+      --shadow-hover: 0 15px 35px rgba(0,0,0,0.15);
+      --transition: all 0.3s ease;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fff5e6;
-      color: #333;
+      background: linear-gradient(135deg, #fff5e6 0%, #fff8f0 100%);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    /* Mejoras de accesibilidad */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Mejora de foco para accesibilidad */
+    a:focus, button:focus, input:focus {
+      outline: 3px solid var(--color-primary);
+      outline-offset: 2px;
     }
 
     /* Pantalla de Bienvenida */
@@ -18,24 +91,58 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(255, 102, 0, 0.95);
+      background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       z-index: 9999;
-      color: white;
+      color: var(--color-white);
       font-size: 2rem;
       text-align: center;
       animation: fadeOut 2s ease-in-out 3s forwards;
     }
 
-   .bienvenida img {
-      width: 650px;
-       max-width: 90%;
-      margin-bottom: 40px;
+    .bienvenida .logo-welcome {
+      width: 250px;
+      height: 250px;
+      background: var(--color-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      animation: logoFloat 3s ease-in-out infinite;
+      overflow: hidden;
+      border: 5px solid rgba(255,255,255,0.3);
+      padding: 15px;
     }
 
+    .bienvenida .logo-welcome img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+      background: var(--color-white);
+      border-radius: 50%;
+      padding: 10px;
+    }
+
+    .bienvenida .logo-welcome:hover img {
+      transform: scale(1.05);
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { 
+        transform: translateY(0px) rotate(0deg);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      }
+      50% { 
+        transform: translateY(-15px) rotate(5deg);
+        box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+      }
+    }
 
     @keyframes fadeOut {
       to { opacity: 0; visibility: hidden; }
@@ -43,333 +150,969 @@
 
     /* Encabezado */
     header {
-      background-color: #ff6600;
-      color: white;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+      color: var(--color-white);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 15px 40px;
       flex-wrap: wrap;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     header .logo {
-      width: 80px;
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      object-fit: contain;
+      background: var(--color-white);
+      padding: 5px;
     }
 
     header h1 {
       margin: 0;
       font-size: 1.8rem;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
       font-weight: bold;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    nav a {
+      color: var(--color-white);
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: var(--transition);
     }
 
-    /* Buscador */
-    .buscador {
+    nav a:hover, nav a:focus {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Info banner */
+    .info-banner {
+      background: var(--color-secondary);
+      color: var(--color-white);
       text-align: center;
-      padding: 20px;
+      padding: 10px;
+      font-weight: bold;
+      animation: pulse 2s infinite;
     }
 
-    .buscador input {
-      width: 60%;
-      padding: 10px;
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    /* Buscador y filtros */
+    .search-section {
+      background: var(--color-white);
+      padding: 30px 40px;
+      margin: 20px 40px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    .search-container {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .search-container input {
+      flex: 1;
+      min-width: 300px;
+      padding: 12px 20px;
       font-size: 1rem;
-      border: 2px solid #ff6600;
-      border-radius: 5px;
+      border: 2px solid var(--color-primary);
+      border-radius: 25px;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-container input:focus {
+      border-color: var(--color-primary-dark);
+      box-shadow: 0 0 10px rgba(255,102,0,0.3);
+    }
+
+    .category-filter {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    .category-btn {
+      background: #f0f0f0;
+      border: 2px solid #ddd;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 600;
+    }
+
+    .category-btn.active,
+    .category-btn:hover,
+    .category-btn:focus {
+      background: var(--color-primary);
+      color: var(--color-white);
+      border-color: var(--color-primary);
     }
 
     /* Productos */
+    .productos-section {
+      padding: 0 40px 40px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--color-primary);
+      margin: 40px 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
     .productos {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
     }
 
     .card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      background: var(--color-white);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
       text-align: center;
-      padding: 20px;
-      transition: transform 0.2s;
+      padding: 25px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
     }
 
-    .card:hover {
-      transform: scale(1.05);
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .card:hover::before {
+      left: 100%;
+    }
+
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
     }
 
     .card img {
       width: 100%;
-      height: 180px;
+      height: 200px;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      background: var(--color-light);
     }
 
     .card h3 {
       margin: 15px 0 10px;
-      color: #cc3300;
-    }
-
-    .card p {
+      color: var(--color-accent);
+      font-size: 1.3rem;
       font-weight: bold;
     }
 
+    .card .precio {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--color-secondary);
+      margin: 10px 0;
+    }
+
+    .card .categoria {
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
     .card button {
-      background: #25d366;
-      color: white;
+      background: linear-gradient(45deg, var(--color-secondary), var(--color-secondary-dark));
+      color: var(--color-white);
       border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
+      padding: 12px 25px;
+      border-radius: 25px;
       cursor: pointer;
       font-size: 1rem;
+      font-weight: bold;
+      width: 100%;
+      transition: var(--transition);
     }
 
-    .card button:hover {
-      background: #128c7e;
+    .card button:hover,
+    .card button:focus {
+      background: linear-gradient(45deg, var(--color-secondary-dark), #0d7269);
+      transform: translateY(-2px);
     }
 
-    /* Botones fijos (carrito y whatsapp) */
+    /* Botones flotantes */
     .floating-buttons {
       position: fixed;
       bottom: 20px;
       right: 20px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 15px;
       z-index: 10000;
     }
 
     .floating-buttons button {
-      background: #1aff00;
+      background: linear-gradient(45deg, var(--color-secondary), var(--color-secondary-dark));
       border: none;
-      padding: 12px;
+      padding: 15px;
       border-radius: 50%;
       cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .floating-buttons button:hover,
+    .floating-buttons button:focus {
+      transform: scale(1.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     }
 
     .floating-buttons img {
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
     }
 
-    /* Burbuja de cantidad en el carrito */
     .cart-count {
       position: absolute;
-      top: 0;
-      right: 0;
-      background: red;
-      color: white;
+      top: -8px;
+      right: -8px;
+      background: #ff3333;
+      color: var(--color-white);
       font-size: 0.8rem;
       font-weight: bold;
       border-radius: 50%;
-      padding: 2px 6px;
+      padding: 4px 8px;
+      min-width: 24px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
 
     /* Modal del carrito */
     .carrito-modal {
       position: fixed;
-      bottom: 80px;
+      bottom: 100px;
       right: 20px;
-      width: 320px;
-      max-height: 400px;
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      overflow-y: auto;
+      width: 380px;
+      max-width: calc(100vw - 40px);
+      max-height: 500px;
+      background: var(--color-white);
+      border-radius: 15px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      overflow: hidden;
       display: none;
-      padding: 15px;
       z-index: 10001;
     }
 
-    .carrito-modal h2 {
-      margin-top: 0;
-      color: #ff6600;
+    .carrito-header {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+      color: var(--color-white);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .carrito-header h2 {
+      margin: 0;
+      font-size: 1.3rem;
     }
 
     .cerrar-carrito {
-  
-      background: rgb(223, 223, 223);
-      color: rgb(179, 22, 22);
+      background: rgba(255,255,255,0.2);
+      color: var(--color-white);
       border: none;
-      padding: 2px 8px;
-      margin-left: 10px;
-      border-radius: 5px;
+      padding: 8px 12px;
+      border-radius: 50%;
       cursor: pointer;
-      font-size: 16px;
-  }
+      font-size: 18px;
+      font-weight: bold;
+      transition: var(--transition);
+    }
 
-    .cerrar-carrito:hover {
-  background: darkred;
-  }
+    .cerrar-carrito:hover,
+    .cerrar-carrito:focus {
+      background: rgba(255,255,255,0.3);
+      transform: rotate(90deg);
+    }
 
+    .carrito-content {
+      padding: 20px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
 
     .carrito-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 10px 0;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
+      margin: 15px 0;
+      padding: 10px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      background: #fafafa;
     }
 
-    .carrito-item input {
-      width: 60px;
-      padding: 5px;
-      text-align: center;
+    .carrito-item-info {
+      flex: 1;
+      min-width: 0;
     }
 
-    .carrito-item button {
-      background: red;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      padding: 5px 10px;
-      cursor: pointer;
+    .carrito-item-name {
+      font-weight: bold;
+      color: var(--color-dark);
+      margin-bottom: 5px;
     }
 
-    .carrito-item button:hover {
-      background: darkred;
-    }
-
-    .carrito-total {
-      margin-top: 10px;
+    .carrito-item-price {
+      color: var(--color-secondary);
       font-weight: bold;
     }
 
+    .carrito-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .quantity-btn {
+      background: var(--color-primary);
+      color: var(--color-white);
+      border: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .quantity-btn:hover,
+    .quantity-btn:focus {
+      background: var(--color-primary-dark);
+    }
+
+    .carrito-item input {
+      width: 50px;
+      padding: 5px;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .carrito-item .remove-btn {
+      background: #ff4444;
+      color: var(--color-white);
+      border: none;
+      border-radius: 4px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: var(--transition);
+    }
+
+    .carrito-item .remove-btn:hover,
+    .carrito-item .remove-btn:focus {
+      background: #cc0000;
+    }
+
+    .carrito-total {
+      border-top: 2px solid #eee;
+      padding-top: 15px;
+      margin-top: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--color-primary);
+      text-align: center;
+    }
+
     .carrito-pagar {
-      background: #25d366;
-      color: white;
-      padding: 10px;
+      background: linear-gradient(45deg, var(--color-secondary), var(--color-secondary-dark));
+      color: var(--color-white);
+      padding: 15px;
       border: none;
       width: 100%;
-      border-radius: 5px;
-      margin-top: 10px;
+      border-radius: 8px;
+      margin-top: 15px;
       cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: var(--transition);
     }
 
-    .carrito-pagar:hover {
-      background: #128c7e;
+    .carrito-pagar:hover,
+    .carrito-pagar:focus {
+      background: linear-gradient(45deg, var(--color-secondary-dark), #0d7269);
     }
 
-    /* Pie de página */
-    footer {
-      background: #333;
-      color: white;
+    /* Modal de confirmación */
+    .confirmation-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10002;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .confirmation-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .confirmation-content {
+      background: var(--color-white);
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      transform: translateY(-50px);
+      transition: transform 0.3s ease;
+    }
+
+    .confirmation-modal.active .confirmation-content {
+      transform: translateY(0);
+    }
+
+    .confirmation-content h2 {
+      color: var(--color-primary);
+      margin-top: 0;
+    }
+
+    .confirmation-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .confirmation-buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: var(--transition);
+    }
+
+    .btn-confirm {
+      background: var(--color-secondary);
+      color: var(--color-white);
+    }
+
+    .btn-confirm:hover,
+    .btn-confirm:focus {
+      background: var(--color-secondary-dark);
+    }
+
+    .btn-cancel {
+      background: #ddd;
+      color: var(--color-dark);
+    }
+
+    .btn-cancel:hover,
+    .btn-cancel:focus {
+      background: #ccc;
+    }
+
+    /* Información adicional */
+    .info-section {
+      background: var(--color-white);
+      margin: 40px;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .info-card {
       text-align: center;
       padding: 20px;
+      border-radius: 10px;
+      background: #f9f9f9;
+    }
+
+    .info-card h3 {
+      color: var(--color-primary);
+      margin-bottom: 15px;
+    }
+
+    /* Footer mejorado */
+    footer {
+      background: linear-gradient(135deg, #333, #444);
+      color: var(--color-white);
+      padding: 40px;
       margin-top: 40px;
     }
 
-    footer p {
-      margin: 5px 0;
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    footer a {
-      color: #ff6600;
+    .footer-section h3 {
+      color: var(--color-primary);
+      margin-bottom: 15px;
+    }
+
+    .footer-section p, .footer-section a {
+      margin: 8px 0;
+      color: #ddd;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    .footer-section a:hover,
+    .footer-section a:focus {
+      color: var(--color-primary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-links a {
+      background: var(--color-primary);
+      padding: 10px;
+      border-radius: 50%;
+      color: var(--color-white);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover,
+    .social-links a:focus {
+      background: var(--color-primary-dark);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 10px 20px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin: 0 10px;
+      }
+
+      .search-section,
+      .productos-section,
+      .info-section {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      .productos {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .carrito-modal {
+        width: calc(100vw - 40px);
+        right: 20px;
+      }
+      
+      .confirmation-content {
+        padding: 20px;
+      }
+      
+      .confirmation-buttons {
+        flex-direction: column;
+      }
+    }
+    
+    /* Animaciones de entrada */
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
   <!-- Pantalla de Bienvenida -->
   <div class="bienvenida">
-    <img src="img/logo.jpg" alt="Logo">
+    <div class="logo-welcome">
+      <img src="img/logo.jpg" alt="Logo Materiales La Bodega" onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'font-size: 4rem; color: #ff6600;\'>🏗️</div>'">
+    </div>
     <p>BIENVENIDO A <strong>MATERIALES LA BODEGA</strong></p>
+    <p style="font-size: 1rem; opacity: 0.9;">Tu aliado en construcción</p>
+    <div style="font-size: 0.8rem; opacity: 0.7; margin-top: 15px;">
+      ✨ Cargando experiencia premium ✨
+    </div>
+  </div>
+
+  <!-- Banner informativo -->
+  <div class="info-banner">
+    📦 ¡ENVÍO GRATIS en compras mayores a $150,000! 🚛 Entrega inmediata en Rionegro
   </div>
 
   <!-- Encabezado -->
   <header>
-    <img src="img/logo.jpg" alt="Logo" class="logo">
+    <img src="img/logo.jpg" alt="Logo Materiales La Bodega - Materiales de construcción en Rionegro" class="logo" onerror="this.style.display='none'; this.parentNode.insertAdjacentHTML('afterbegin', '<div style=\'font-size: 3rem;\'>🏗️</div>')">
     <h1>Materiales la Bodega</h1>
     <nav>
-      <a href="#">Inicio</a>
+      <a href="#inicio">Inicio</a>
       <a href="#productos">Productos</a>
+      <a href="#info">Servicios</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
-  <!-- Buscador -->
-  <div class="buscador">
-    <input type="text" id="buscar" placeholder="Buscar productos...">
+  <!-- Sección de búsqueda y filtros -->
+  <div class="search-section">
+    <div class="search-container">
+      <input type="text" id="buscar" placeholder="¿Qué material necesitas hoy?" aria-label="Buscar productos">
+    </div>
+    <div class="category-filter">
+      <button class="category-btn active" onclick="filtrarCategoria('todas')">Todos</button>
+      <button class="category-btn" onclick="filtrarCategoria('herramientas')">Herramientas</button>
+      <button class="category-btn" onclick="filtrarCategoria('materiales')">Materiales</button>
+      <button class="category-btn" onclick="filtrarCategoria('pinturas')">Pinturas</button>
+      <button class="category-btn" onclick="filtrarCategoria('plomeria')">Plomería</button>
+      <button class="category-btn" onclick="filtrarCategoria('electrico')">Eléctricos</button>
+    </div>
   </div>
 
   <!-- Productos -->
-  <section id="productos" class="productos">
-    <div class="card" data-nombre="martillo profesional" data-precio="25000">
-      <img src="img/martillo.jpeg" alt="Martillo">
-      <h3>Martillo Profesional</h3>
-      <p>$25,000</p>
-      <button onclick="agregarAlCarrito('Martillo Profesional', 25000)">Añadir al carrito</button>
-    </div>
+  <section id="productos" class="productos-section">
+    <h2 class="section-title">Nuestros Productos</h2>
+    <div class="productos">
+      <!-- Herramientas -->
+      <div class="card" data-nombre="martillo profesional" data-precio="25000" data-categoria="herramientas">
+        <div class="categoria">Herramientas</div>
+        <div style="font-size: 4rem; margin: 20px 0;">🔨</div>
+        <h3>Martillo Profesional</h3>
+        <p class="precio">$25,000</p>
+        <button onclick="agregarAlCarrito('Martillo Profesional', 25000)" aria-label="Añadir Martillo Profesional al carrito">Añadir al carrito</button>
+      </div>
 
-    <div class="card" data-nombre="cemento gris" data-precio="40000">
-      <img src="img/cemento.jpeg" alt="Cemento">
-      <h3>Cemento Gris</h3>
-      <p>$40,000</p>
-      <button onclick="agregarAlCarrito('Cemento Gris', 40000)">Añadir al carrito</button>
-    </div>
+      <div class="card" data-nombre="taladro electrico" data-precio="150000" data-categoria="herramientas">
+        <div class="categoria">Herramientas</div>
+        <div style="font-size: 4rem; margin: 20px 0;">🔧</div>
+        <h3>Taladro Eléctrico</h3>
+        <p class="precio">$150,000</p>
+        <button onclick="agregarAlCarrito('Taladro Eléctrico', 150000)" aria-label="Añadir Taladro Eléctrico al carrito">Añadir al carrito</button>
+      </div>
 
-    <div class="card" data-nombre="pintura blanca" data-precio="35000">
-      <img src="img/pintura2.png" alt="Pintura">
-      <h3>Pintura Blanca</h3>
-      <p>$35,000</p>
-      <button onclick="agregarAlCarrito('Pintura Blanca', 35000)">Añadir al carrito</button>
+      <div class="card" data-nombre="sierra electrica" data-precio="200000" data-categoria="herramientas">
+        <div class="categoria">Herramientas</div>
+        <div style="font-size: 4rem; margin: 20px 0;">⚙️</div>
+        <h3>Sierra Eléctrica</h3>
+        <p class="precio">$200,000</p>
+        <button onclick="agregarAlCarrito('Sierra Eléctrica', 200000)" aria-label="Añadir Sierra Eléctrica al carrito">Añadir al carrito</button>
+      </div>
+
+      <div class="card" data-nombre="destornilladores set" data-precio="35000" data-categoria="herramientas">
+        <div class="categoria">Herramientas</div>
+        <div style="font-size: 4rem; margin: 20px 0;">🔩</div>
+        <h3>Set Destornilladores</h3>
+        <p class="precio">$35,000</p>
+        <button onclick="agregarAlCarrito('Set Destornilladores', 35000)" aria-label="Añadir Set Destornilladores al carrito">Añadir al carrito</button>
+      </div>
+
+      <!-- Materiales -->
+      <div class="card" data-nombre="cemento gris" data-precio="40000" data-categoria="materiales">
+        <div class="categoria">Materiales</div>
+        <div style="font-size: 4rem; margin: 20px 0;">🧱</div>
+        <h3>Cemento Gris x50kg</h3>
+        <p class="precio">$40,000</p>
+        <button onclick="agregarAlCarrito('Cemento Gris x50kg', 40000)" aria-label="Añadir Cemento Gris al carrito">Añadir al carrito</button>
+      </div>
+
+      <div class="card" data-nombre="arena fina" data-precio="60000" data-categoria="materiales">
+        <div class="categoria">Materiales</div>
+        <div style="font-size: 4rem; margin: 20px 0;">⛱️</div>
+        <h3>Arena Fina (m³)</h3>
+        <p class="precio">$60,000</p>
+        <button onclick="agregarAlCarrito('Arena Fina (m³)', 60000)" aria-label="Añadir Arena Fina al carrito">Añadir al carrito</button>
+      </div>
+
+      <div class="card" data-nombre="grava" data-precio="80000" data-categoria="materiales">
+        <div class="categoria">Materiales</div>
+        <div style="font-size: 4rem; margin: 20px 0;">🪨</div>
+        <h3>Grava (m³)</h3>
+        <p class="precio">$80,000</p>
+        <button onclick="agregarAlCarrito('Grava (m³)', 80000)" aria-label="Añadir Grava al carrito">Añadir al carrito</button>
+      </div>
+
+      <div class="card" data-nombre="ladrillos bloque" data-precio="1200" data-categoria="materiales">
+        <div class="categoria">Materiales</div>
+        <div style="font-size: 4rem; margin: 20px 0;">🧱</div>
+        <h3>Bloque Ladrillo</h3>
+        <p class="precio">$1,200 c/u</p>
+        <button onclick="agregarAlCarrito('Bloque Ladrillo', 1200)" aria-label="Añadir Bloque Ladrillo al carrito">Añadir al carrito</button>
+      </div>
+
+      <!-- Pinturas -->
+      <div class="card" data-nombre="pintura blanca" data-precio="35000" data-categoria="pinturas">
+        <div class="categoria">Pinturas</div>
+        <div style="font-size: 4rem; margin: 20px 0;">🎨</div>
+        <h3>Pintura Blanca (Galón)</h3>
+        <p class="precio">$35,000</p>
+        <button onclick="agregarAlCarrito('Pintura Blanca (Galón)', 35000)" aria-label="Añadir Pintura Blanca al carrito">Añadir al carrito</button>
+      </div>
+
+      <div class="card" data-nombre="pintura amarilla" data-precio="37000" data-categoria="pinturas">
+        <div class="categoria">Pinturas</div>
+        <div style="font-size: 4rem; margin: 20px 0; color: #FFD700;">🎨</div>
+        <h3>Pintura Amarilla (Galón)</h3>
+        <p class="precio">$37,000</p>
+        <button onclick="agregarAlCarrito('Pintura Amarilla (Galón)', 37000)" aria-label="Añadir Pintura Amarilla al carrito">Añadir al carrito</button>
+      </div>
+
+      <div class="card" data-nombre="brocha grande" data-precio="15000" data-categoria="pinturas">
+        <div class="categoria">Pinturas</div>
+        <div style="font-size: 4rem; margin: 20px 0;">🖌️</div>
+        <h3>Brocha Grande</h3>
+        <p class="precio">$15,000</p>
+        <button onclick="agregarAlCarrito('Brocha Grande', 15000)" aria-label="Añadir Brocha Grande al carrito">Añadir al carrito</button>
+      </div>
+
+      <div class="card" data-nombre="rodillo pintura" data-precio="12000" data-categoria="pinturas">
+        <div class="categoria">Pinturas</div>
+        <div style="font-size: 4rem; margin: 20px 0;">🪣</div>
+        <h3>Rodillo para Pintura</h3>
+        <p class="precio">$12,000</p>
+        <button onclick="agregarAlCarrito('Rodillo para Pintura', 12000)" aria-label="Añadir Rodillo para Pintura al carrito">Añadir al carrito</button>
+      </div>
+
+      <!-- Plomería -->
+      <div class="card" data-nombre="tubos pvc" data-precio="25000" data-categoria="plomeria">
+        <div class="categoria">Plomería</div>
+        <div style="font-size: 4rem; margin: 20px 0;">🔧</div>
+        <h3>Tubo PVC 6m</h3>
+        <p class="precio">$25,000</p>
+        <button onclick="agregarAlCarrito('Tubo PVC 6m', 25000)" aria-label="Añadir Tubo PVC al carrito">Añadir al carrito</button>
+      </div>
+
+      <div class="card" data-nombre="codos pvc" data-precio="5000" data-categoria="plomeria">
+        <div class="categoria">Plomería</div>
+        <div style="font-size: 4rem; margin: 20px 0;">↩️</div>
+        <h3>Codo PVC 90°</h3>
+        <p class="precio">$5,000</p>
+        <button onclick="agregarAlCarrito('Codo PVC 90°', 5000)" aria-label="Añadir Codo PVC al carrito">Añadir al carrito</button>
+      </div>
+
+      <div class="card" data-nombre="llave agua" data-precio="45000" data-categoria="plomeria">
+        <div class="categoria">Plomería</div>
+        <div style="font-size: 4rem; margin: 20px 0;">🚰</div>
+        <h3>Llave de Agua</h3>
+        <p class="precio">$45,000</p>
+        <button onclick="agregarAlCarrito('Llave de Agua', 45000)" aria-label="Añadir Llave de Agua al carrito">Añadir al carrito</button>
+      </div>
+
+      <!-- Eléctricos -->
+      <div class="card" data-nombre="cable electrico" data-precio="8000" data-categoria="electrico">
+        <div class="categoria">Eléctricos</div>
+        <div style="font-size: 4rem; margin: 20px 0;">⚡</div>
+        <h3>Cable Eléctrico (Metro)</h3>
+        <p class="precio">$8,000</p>
+        <button onclick="agregarAlCarrito('Cable Eléctrico (Metro)', 8000)" aria-label="Añadir Cable Eléctrico al carrito">Añadir al carrito</button>
+      </div>
+
+      <div class="card" data-nombre="interruptor luz" data-precio="12000" data-categoria="electrico">
+        <div class="categoria">Eléctricos</div>
+        <div style="font-size: 4rem; margin: 20px 0;">💡</div>
+        <h3>Interruptor de Luz</h3>
+        <p class="precio">$12,000</p>
+        <button onclick="agregarAlCarrito('Interruptor de Luz', 12000)" aria-label="Añadir Interruptor de Luz al carrito">Añadir al carrito</button>
+      </div>
+
+      <div class="card" data-nombre="tomacorriente" data-precio="15000" data-categoria="electrico">
+        <div class="categoria">Eléctricos</div>
+        <div style="font-size: 4rem; margin: 20px 0;">🔌</div>
+        <h3>Tomacorriente</h3>
+        <p class="precio">$15,000</p>
+        <button onclick="agregarAlCarrito('Tomacorriente', 15000)" aria-label="Añadir Tomacorriente al carrito">Añadir al carrito</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Información adicional -->
+  <section id="info" class="info-section">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <div style="font-size: 3rem; margin-bottom: 15px;">🚚</div>
+        <h3>Entrega a Domicilio</h3>
+        <p>Entregamos tus materiales directamente en tu obra. Servicio disponible en Rionegro y alrededores.</p>
+      </div>
+      <div class="info-card">
+        <div style="font-size: 3rem; margin-bottom: 15px;">💳</div>
+        <h3>Múltiples Formas de Pago</h3>
+        <p>Efectivo, transferencias, tarjetas débito/crédito. ¡Tu comodidad es nuestra prioridad!</p>
+      </div>
+      <div class="info-card">
+        <div style="font-size: 3rem; margin-bottom: 15px;">⏰</div>
+        <h3>Horarios Flexibles</h3>
+        <p>Lunes a Viernes: 7:00 AM - 6:00 PM<br>Sábados: 7:00 AM - 4:00 PM<br>Domingos: 8:00 AM - 2:00 PM</p>
+      </div>
+      <div class="info-card">
+        <div style="font-size: 3rem; margin-bottom: 15px;">🎯</div>
+        <h3>Asesoría Especializada</h3>
+        <p>Nuestros expertos te ayudan a calcular las cantidades exactas para tu proyecto.</p>
+      </div>
+      <div class="info-card">
+        <div style="font-size: 3rem; margin-bottom: 15px;">✅</div>
+        <h3>Productos de Calidad</h3>
+        <p>Solo manejamos marcas reconocidas y materiales con garantía de calidad.</p>
+      </div>
+      <div class="info-card">
+        <div style="font-size: 3rem; margin-bottom: 15px;">📞</div>
+        <h3>Atención 24/7</h3>
+        <p>Contáctanos por WhatsApp en cualquier momento. ¡Siempre estamos aquí para ayudarte!</p>
+      </div>
     </div>
   </section>
 
   <!-- Botones flotantes -->
   <div class="floating-buttons">
-    <button onclick="toggleCarrito()" style="position: relative;">
-      <img src="img/compra.png" alt="Carrito">
+    <button onclick="toggleCarrito()" style="position: relative;" title="Ver carrito" aria-label="Ver carrito de compras">
+      <div style="font-size: 20px;">🛒</div>
       <span id="cart-count" class="cart-count" style="display:none;">0</span>
     </button>
-    <button onclick="abrirWhatsApp()">
-      <img src="img/whatsapp.png" alt="WhatsApp">
+    <button onclick="abrirWhatsApp()" title="Contactar por WhatsApp" aria-label="Contactar por WhatsApp">
+      <div style="font-size: 20px;">💬</div>
     </button>
   </div>
 
   <!-- Modal del carrito -->
-<div id="carritoModal" class="carrito-modal">
-  <h2>
-    Carrito de Compras 
-    <button class="cerrar-carrito" onclick="toggleCarrito()">—</button>
-  </h2>
-  <div id="carrito-items"></div>
-  <div class="carrito-total" id="carrito-total">Total: $0</div>
-  <button class="carrito-pagar" onclick="pagarCarrito()">Pagar</button>
-</div>
+  <div id="carritoModal" class="carrito-modal">
+    <div class="carrito-header">
+      <h2>🛒 Mi Carrito</h2>
+      <button class="cerrar-carrito" onclick="toggleCarrito()" aria-label="Cerrar carrito">×</button>
+    </div>
+    <div class="carrito-content">
+      <div id="carrito-items"></div>
+      <div class="carrito-total" id="carrito-total">Total: $0</div>
+      <button class="carrito-pagar" onclick="mostrarConfirmacion()" aria-label="Realizar pedido por WhatsApp">💬 Pedir por WhatsApp</button>
+    </div>
+  </div>
 
+  <!-- Modal de confirmación -->
+  <div id="confirmationModal" class="confirmation-modal">
+    <div class="confirmation-content">
+      <h2>Confirmar Pedido</h2>
+      <p>¿Estás seguro de que quieres realizar este pedido? Serás redirigido a WhatsApp para completar tu compra.</p>
+      <div class="confirmation-buttons">
+        <button class="btn-confirm" onclick="pagarCarrito()">Sí, realizar pedido</button>
+        <button class="btn-cancel" onclick="cerrarConfirmacion()">Cancelar</button>
+      </div>
+    </div>
+  </div>
 
-  <!-- Pie de página -->
+  <!-- Footer mejorado -->
   <footer id="contacto">
-    <p><strong>📍 Dirección:</strong> Km 5 Vía Rionegro Aeropuerto, Sector Las Delicias</p>
-    <p><strong>📞 Teléfono:</strong> 3126166288</p>
-    <p><strong>✉️ Correo:</strong> materialeslabodega9@gmail.com</p>
-    <p>
-      🌐 Síguenos en 
-      <a href="https://facebook.com" target="_blank">Facebook</a> | 
-      <a href="https://instagram.com" target="_blank">Instagram</a> | 
-      <a href="https://wa.me/573126166288" target="_blank">WhatsApp</a>
-    </p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>📍 Ubicación</h3>
+        <p><strong>Dirección:</strong><br>Km 5 Vía Rionegro Aeropuerto<br>Sector Las Delicias<br>Rionegro, Antioquia</p>
+        <p><strong>Referencia:</strong><br>Frente al Centro Comercial Llanogrande</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>📞 Contacto</h3>
+        <p><strong>WhatsApp:</strong><br>📱 3126166288</p>
+        <p><strong>Email:</strong><br>✉️ materialeslabodega9@gmail.com</p>
+        <p><strong>Llamadas:</strong><br>📞 (4) 123-4567</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>⏰ Horarios</h3>
+        <p><strong>Lunes - Viernes:</strong><br>7:00 AM - 6:00 PM</p>
+        <p><strong>Sábados:</strong><br>7:00 AM - 4:00 PM</p>
+        <p><strong>Domingos:</strong><br>8:00 AM - 2:00 PM</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>🌐 Síguenos</h3>
+        <p>Mantente conectado con nosotros</p>
+        <div class="social-links">
+          <a href="https://wa.me/573126166288" target="_blank" title="WhatsApp" aria-label="Contactar por WhatsApp">💬</a>
+          <a href="https://facebook.com" target="_blank" title="Facebook" aria-label="Síguenos en Facebook">📘</a>
+          <a href="https://instagram.com" target="_blank" title="Instagram" aria-label="Síguenos en Instagram">📷</a>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #999;">
+          © 2024 Materiales La Bodega. Todos los derechos reservados.
+        </p>
+      </div>
+    </div>
   </footer>
 
   <script>
     let carrito = [];
+    let categoriaActiva = 'todas';
 
     // Función para agregar producto
     function agregarAlCarrito(nombre, precio) {
@@ -380,25 +1123,53 @@
         carrito.push({ nombre, precio, cantidad: 1 });
       }
       actualizarCarrito();
+      
+      // Animación de confirmación
+      const btn = event.target;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = "✅ Agregado";
+      btn.style.background = "#28a745";
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = "";
+      }, 1500);
     }
 
-    // Mostrar carrito
+    // Mostrar/ocultar carrito
     function toggleCarrito() {
       let modal = document.getElementById("carritoModal");
       modal.style.display = modal.style.display === "block" ? "none" : "block";
     }
 
-    // Eliminar producto
+    // Eliminar producto del carrito
     function eliminarProducto(nombre) {
       carrito = carrito.filter(p => p.nombre !== nombre);
       actualizarCarrito();
     }
 
-    // Actualizar cantidad desde input
+    // Cambiar cantidad desde input
     function cambiarCantidad(nombre, nuevaCantidad) {
       let item = carrito.find(p => p.nombre === nombre);
-      if (item) {
+      if (item && nuevaCantidad > 0) {
         item.cantidad = parseInt(nuevaCantidad) || 1;
+        actualizarCarrito();
+      }
+    }
+
+    // Aumentar cantidad
+    function aumentarCantidad(nombre) {
+      let item = carrito.find(p => p.nombre === nombre);
+      if (item) {
+        item.cantidad++;
+        actualizarCarrito();
+      }
+    }
+
+    // Disminuir cantidad
+    function disminuirCantidad(nombre) {
+      let item = carrito.find(p => p.nombre === nombre);
+      if (item && item.cantidad > 1) {
+        item.cantidad--;
         actualizarCarrito();
       }
     }
@@ -410,59 +1181,225 @@
       let count = 0;
       itemsContainer.innerHTML = "";
 
+      if (carrito.length === 0) {
+        itemsContainer.innerHTML = `
+          <div style="text-align: center; color: #999; padding: 20px;">
+            <div style="font-size: 3rem; margin-bottom: 10px;">🛒</div>
+            <p>Tu carrito está vacío</p>
+            <p style="font-size: 0.9rem;">Agrega algunos productos para comenzar</p>
+          </div>
+        `;
+      }
+
       carrito.forEach(p => {
         total += p.precio * p.cantidad;
         count += p.cantidad;
 
         itemsContainer.innerHTML += `
           <div class="carrito-item">
-            <span>${p.nombre} - $${p.precio}</span>
-            <input type="number" min="1" value="${p.cantidad}" onchange="cambiarCantidad('${p.nombre}', this.value)">
-            <button onclick="eliminarProducto('${p.nombre}')">Eliminar</button>
+            <div class="carrito-item-info">
+              <div class="carrito-item-name">${p.nombre}</div>
+              <div class="carrito-item-price">${p.precio.toLocaleString()} c/u</div>
+            </div>
+            <div class="carrito-controls">
+              <div class="quantity-controls">
+                <button class="quantity-btn" onclick="disminuirCantidad('${p.nombre}')" aria-label="Reducir cantidad">-</button>
+                <input type="number" min="1" value="${p.cantidad}" onchange="cambiarCantidad('${p.nombre}', this.value)" aria-label="Cantidad de ${p.nombre}">
+                <button class="quantity-btn" onclick="aumentarCantidad('${p.nombre}')" aria-label="Aumentar cantidad">+</button>
+              </div>
+              <button class="remove-btn" onclick="eliminarProducto('${p.nombre}')" title="Eliminar" aria-label="Eliminar ${p.nombre} del carrito">🗑️</button>
+            </div>
           </div>
         `;
       });
 
-      document.getElementById("carrito-total").innerText = "Total: $" + total.toLocaleString();
+      document.getElementById("carrito-total").innerHTML = `
+        <div style="font-size: 1.4rem;">Total: ${total.toLocaleString()}</div>
+        <div style="font-size: 0.9rem; color: #666;">${count} producto${count !== 1 ? 's' : ''}</div>
+      `;
+      
       document.getElementById("cart-count").innerText = count;
       document.getElementById("cart-count").style.display = count > 0 ? "block" : "none";
     }
 
-    // Función pagar redirige a WhatsApp
-    function pagarCarrito() {
-      let telefono = "573126166288";
-      let mensaje = "Hola, quiero comprar lo siguiente:\n\n";
-      let total = 0;
+    // Mostrar modal de confirmación
+    function mostrarConfirmacion() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío. Agrega algunos productos primero.");
+        return;
+      }
+      
+      document.getElementById("confirmationModal").classList.add("active");
+    }
 
-      carrito.forEach(p => {
-        mensaje += `${p.nombre} (x${p.cantidad}) - $${(p.precio * p.cantidad).toLocaleString()}\n`;
-        total += p.precio * p.cantidad;
+    // Cerrar modal de confirmación
+    function cerrarConfirmacion() {
+      document.getElementById("confirmationModal").classList.remove("active");
+    }
+
+    // Función pagar - redirige a WhatsApp
+    function pagarCarrito() {
+      cerrarConfirmacion();
+      
+      let telefono = "573126166288";
+      let mensaje = "🏗️ *PEDIDO DESDE LA WEB* 🏗️\n\n";
+      mensaje += "Hola! Quiero realizar el siguiente pedido:\n\n";
+      
+      let total = 0;
+      carrito.forEach((p, index) => {
+        const subtotal = p.precio * p.cantidad;
+        mensaje += `${index + 1}. *${p.nombre}*\n`;
+        mensaje += `   📦 Cantidad: ${p.cantidad}\n`;
+        mensaje += `   💰 Precio: ${p.precio.toLocaleString()} c/u\n`;
+        mensaje += `   💵 Subtotal: ${subtotal.toLocaleString()}\n\n`;
+        total += subtotal;
       });
 
-      mensaje += `\nTotal: $${total.toLocaleString()}`;
+      mensaje += `🧾 *TOTAL: ${total.toLocaleString()}*\n\n`;
+      mensaje += "📍 Dirección de entrega: _____\n";
+      mensaje += "⏰ Hora preferida: _____\n";
+      mensaje += "💳 Forma de pago: _____\n\n";
+      mensaje += "¡Gracias por elegir Materiales La Bodega! 🙂";
+
       let url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
       window.open(url, "_blank");
+      
+      // Limpiar carrito después de enviar
+      carrito = [];
+      actualizarCarrito();
+      toggleCarrito();
+      
+      // Mostrar mensaje de agradecimiento
+      setTimeout(() => {
+        alert("¡Gracias por tu pedido! Te contactaremos pronto por WhatsApp.");
+      }, 1000);
     }
 
     // Función WhatsApp general
     function abrirWhatsApp() {
       let telefono = "573126166288";
-      let mensaje = "Hola, tengo una duda sobre los productos.";
+      let mensaje = "🏗️ Hola! Me interesa conocer más sobre sus productos y servicios.\n\n¿Podrían brindarme información sobre disponibilidad y precios?\n\n¡Gracias!";
       let url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
       window.open(url, "_blank");
     }
 
-    // Buscador
-    document.getElementById("buscar").addEventListener("keyup", function() {
-      let filtro = this.value.toLowerCase();
-      let productos = document.querySelectorAll(".card");
+    // Filtrar por categorías
+    function filtrarCategoria(categoria) {
+      categoriaActiva = categoria;
       
+      // Actualizar botones activos
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+
+      let productos = document.querySelectorAll(".card");
       productos.forEach(function(card) {
-        let nombre = card.getAttribute("data-nombre");
-        if (nombre.includes(filtro)) {
+        let cardCategoria = card.getAttribute("data-categoria");
+        if (categoria === 'todas' || cardCategoria === categoria) {
           card.style.display = "block";
         } else {
           card.style.display = "none";
+        }
+      });
+    }
+
+    // Buscador mejorado
+    document.getElementById("buscar").addEventListener("keyup", function() {
+      let filtro = this.value.toLowerCase();
+      let productos = document.querySelectorAll(".card");
+      let encontrados = 0;
+      
+      productos.forEach(function(card) {
+        let nombre = card.getAttribute("data-nombre");
+        let categoria = card.getAttribute("data-categoria");
+        let visible = false;
+        
+        // Buscar en nombre y categoría
+        if (nombre.includes(filtro) || categoria.includes(filtro)) {
+          // También verificar filtro de categoría activa
+          if (categoriaActiva === 'todas' || categoria === categoriaActiva) {
+            visible = true;
+            encontrados++;
+          }
+        }
+        
+        card.style.display = visible ? "block" : "none";
+      });
+
+      // Mostrar mensaje si no hay resultados
+      let productosSection = document.querySelector('.productos');
+      let mensajeNoResultados = document.getElementById('no-resultados');
+      
+      if (mensajeNoResultados) {
+        mensajeNoResultados.remove();
+      }
+      
+      if (encontrados === 0 && filtro.length > 0) {
+        let mensaje = document.createElement('div');
+        mensaje.id = 'no-resultados';
+        mensaje.innerHTML = `
+          <div style="text-align: center; padding: 40px; color: #666;">
+            <div style="font-size: 4rem; margin-bottom: 20px;">🔍</div>
+            <h3>No encontramos productos</h3>
+            <p>Intenta con otras palabras clave o contacta con nosotros por WhatsApp</p>
+            <button onclick="abrirWhatsApp()" style="background: #25d366; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; margin-top: 15px;">
+              💬 Consultar por WhatsApp
+            </button>
+          </div>
+        `;
+        productosSection.appendChild(mensaje);
+      }
+    });
+
+    // Cerrar carrito al hacer clic fuera
+    document.addEventListener('click', function(e) {
+      let carrito = document.getElementById('carritoModal');
+      let floatingButtons = document.querySelector('.floating-buttons');
+      let confirmationModal = document.getElementById('confirmationModal');
+      
+      if (carrito && !carrito.contains(e.target) && !floatingButtons.contains(e.target)) {
+        carrito.style.display = 'none';
+      }
+      
+      if (confirmationModal && confirmationModal.classList.contains('active') && !document.querySelector('.confirmation-content').contains(e.target)) {
+        cerrarConfirmacion();
+      }
+    });
+
+    // Animaciones de entrada
+    window.addEventListener('load', function() {
+      // Animar cards cuando aparecen
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animation = 'slideInUp 0.6s ease forwards';
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(50px)';
+        observer.observe(card);
+      });
+    });
+
+    // Smooth scrolling para navegación
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         }
       });
     });
