@@ -1016,7 +1016,7 @@
       <div class="info-card">
         <div style="font-size: 3rem; margin-bottom: 15px;">⏰</div>
         <h3>Horarios Flexibles</h3>
-        <p>Lunes a Viernes: 7:00 AM - 6:00 PM<br>Sábados: 7:00 AM - 4:00 PM<br>Domingos: 8:00 AM - 2:00 PM</p>
+        <p>Lunes a Viernes: 7:00 AM - 5:00 PM<br>Sábados: 7:00 AM - 1:00 PM</p>
       </div>
       <div class="info-card">
         <div style="font-size: 3rem; margin-bottom: 15px;">🎯</div>
@@ -1030,8 +1030,8 @@
       </div>
       <div class="info-card">
         <div style="font-size: 3rem; margin-bottom: 15px;">📞</div>
-        <h3>Atención 24/7</h3>
-        <p>Contáctanos por WhatsApp en cualquier momento. ¡Siempre estamos aquí para ayudarte!</p>
+        <h3>La mejor atención</h3>
+        <p>Contáctanos por WhatsApp. ¡Siempre estamos aquí para ayudarte!</p>
       </div>
     </div>
   </section>
@@ -1056,7 +1056,7 @@
     <div class="carrito-content">
       <div id="carrito-items"></div>
       <div class="carrito-total" id="carrito-total">Total: $0</div>
-      <button class="carrito-pagar" onclick="mostrarConfirmacion()" aria-label="Realizar pedido por WhatsApp">💬 Pedir por WhatsApp</button>
+      <button class="carrito-pagar" id="btn-pagar" onclick="pagarCarrito()">Pagar con WhatsApp</button>
     </div>
   </div>
 
@@ -1078,21 +1078,20 @@
       <div class="footer-section">
         <h3>📍 Ubicación</h3>
         <p><strong>Dirección:</strong><br>Km 5 Vía Rionegro Aeropuerto<br>Sector Las Delicias<br>Rionegro, Antioquia</p>
-        <p><strong>Referencia:</strong><br>Frente al Centro Comercial Llanogrande</p>
+        <p><strong>Referencia:</strong><br>Más adelante del helicoptero vía Aeropuerto</p>
       </div>
       
       <div class="footer-section">
         <h3>📞 Contacto</h3>
         <p><strong>WhatsApp:</strong><br>📱 3126166288</p>
         <p><strong>Email:</strong><br>✉️ materialeslabodega9@gmail.com</p>
-        <p><strong>Llamadas:</strong><br>📞 (4) 123-4567</p>
+        <p><strong>Llamadas:</strong><br>📞 3126166288</p>
       </div>
 
       <div class="footer-section">
         <h3>⏰ Horarios</h3>
-        <p><strong>Lunes - Viernes:</strong><br>7:00 AM - 6:00 PM</p>
-        <p><strong>Sábados:</strong><br>7:00 AM - 4:00 PM</p>
-        <p><strong>Domingos:</strong><br>8:00 AM - 2:00 PM</p>
+        <p><strong>Lunes - Viernes:</strong><br>7:00 AM - 5:00 PM</p>
+        <p><strong>Sábados:</strong><br>7:00 AM - 1:00 PM</p>
       </div>
 
       <div class="footer-section">
@@ -1241,6 +1240,8 @@
     function pagarCarrito() {
       cerrarConfirmacion();
       
+      
+      
       let telefono = "573126166288";
       let mensaje = "🏗️ *PEDIDO DESDE LA WEB* 🏗️\n\n";
       mensaje += "Hola! Quiero realizar el siguiente pedido:\n\n";
@@ -1253,6 +1254,7 @@
         mensaje += `   💰 Precio: ${p.precio.toLocaleString()} c/u\n`;
         mensaje += `   💵 Subtotal: ${subtotal.toLocaleString()}\n\n`;
         total += subtotal;
+
       });
 
       mensaje += `🧾 *TOTAL: ${total.toLocaleString()}*\n\n`;
@@ -1263,7 +1265,9 @@
 
       let url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
       window.open(url, "_blank");
-      
+
+    
+  
       // Limpiar carrito después de enviar
       carrito = [];
       actualizarCarrito();
@@ -1406,8 +1410,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
