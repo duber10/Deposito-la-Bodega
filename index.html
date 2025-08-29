@@ -854,7 +854,7 @@
         <img src="img/martillo.jpeg" alt="Martillo">
         <h3>Martillo Profesional</h3>
         <p class="precio">$25,000</p>
-        <button onclick="agregarAlCarrito('Martillo Profesional', 25000)" aria-label="Añadir Martillo Profesional al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event, 'Martillo Profesional', 25000)" aria-label="Añadir Martillo Profesional al carrito">Añadir al carrito</button>
       </div>
 
       <div class="card" data-nombre="taladro electrico" data-precio="150000" data-categoria="herramientas">
@@ -862,7 +862,7 @@
         <img src="img/taladro electrico.jpeg" alt="Taladro electrico">
         <h3>Taladro Eléctrico</h3>
         <p class="precio">$150,000</p>
-        <button onclick="agregarAlCarrito('Taladro Eléctrico', 150000)" aria-label="Añadir Taladro Eléctrico al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event, 'Taladro Eléctrico', 150000)" aria-label="Añadir Taladro Eléctrico al carrito">Añadir al carrito</button>
       </div>
 
       <div class="card" data-nombre="sierra electrica" data-precio="200000" data-categoria="herramientas">
@@ -870,7 +870,7 @@
         <img src="img/sierraElectrica.jpeg" alt="Sierra Eléctrica">
         <h3>Sierra Eléctrica</h3>
         <p class="precio">$200,000</p>
-        <button onclick="agregarAlCarrito('Sierra Eléctrica', 200000)" aria-label="Añadir Sierra Eléctrica al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event, 'Sierra Eléctrica', 200000)" aria-label="Añadir Sierra Eléctrica al carrito">Añadir al carrito</button>
       </div>
 
       <div class="card" data-nombre="destornilladores set" data-precio="35000" data-categoria="herramientas">
@@ -878,16 +878,16 @@
         <img src="img/destornilladores.jpeg" alt="Martillo">
         <h3>Set Destornilladores</h3>
         <p class="precio">$35,000</p>
-        <button onclick="agregarAlCarrito('Set Destornilladores', 35000)" aria-label="Añadir Set Destornilladores al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event,'Set Destornilladores', 35000)" aria-label="Añadir Set Destornilladores al carrito">Añadir al carrito</button>
       </div>
 
       <!-- Materiales -->
       <div class="card" data-nombre="cemento gris" data-precio="40000" data-categoria="materiales">
         <div class="categoria">Materiales</div>
         <img src="img/cemento.jpeg" alt="Cemento">
-        <h3>Cemento Gris x50kg</h3>
+        <h3>Cemento Gris x50kgn</h3>
         <p class="precio">$40,000</p>
-        <button onclick="agregarAlCarrito('Cemento Gris x50kg', 40000)" aria-label="Añadir Cemento Gris al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event,'Cemento Gris x50kg', 40000)" aria-label="Añadir Cemento Gris al carrito">Añadir al carrito</button>
       </div>
 
       <div class="card" data-nombre="arena fina" data-precio="60000" data-categoria="materiales">
@@ -895,7 +895,7 @@
         <img src="img/arenaFina.jpeg" alt="Arena">
         <h3>Arena Fina (m³)</h3>
         <p class="precio">$60,000</p>
-        <button onclick="agregarAlCarrito('Arena Fina (m³)', 60000)" aria-label="Añadir Arena Fina al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event,'Arena Fina (m³)', 60000)" aria-label="Añadir Arena Fina al carrito">Añadir al carrito</button>
       </div>
 
       <div class="card" data-nombre="grava" data-precio="80000" data-categoria="materiales">
@@ -903,7 +903,7 @@
         <img src="img/GRAVA.jpg" alt="Grava">
         <h3>Grava (m³)</h3>
         <p class="precio">$80,000</p>
-        <button onclick="agregarAlCarrito('Grava (m³)', 80000)" aria-label="Añadir Grava al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event,'Grava (m³)', 80000)" aria-label="Añadir Grava al carrito">Añadir al carrito</button>
       </div>
 
       <div class="card" data-nombre="ladrillos bloque" data-precio="1200" data-categoria="materiales">
@@ -911,7 +911,7 @@
         <img src="img/ladrillo.jpeg" alt="Ladrillo">
         <h3>Bloque Ladrillo</h3>
         <p class="precio">$1,200 c/u</p>
-        <button onclick="agregarAlCarrito('Bloque Ladrillo', 1200)" aria-label="Añadir Bloque Ladrillo al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event,'Bloque Ladrillo', 1200)" aria-label="Añadir Bloque Ladrillo al carrito">Añadir al carrito</button>
       </div>
 
       <!-- Pinturas -->
@@ -920,7 +920,7 @@
         <img src="img/pintura2.png" alt="Pintura">
         <h3>Pintura Blanca (Galón)</h3>
         <p class="precio">$35,000</p>
-        <button onclick="agregarAlCarrito('Pintura Blanca (Galón)', 35000)" aria-label="Añadir Pintura Blanca al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event,'Pintura Blanca (Galón)', 35000)" aria-label="Añadir Pintura Blanca al carrito">Añadir al carrito</button>
       </div>
 
       <div class="card" data-nombre="pintura amarilla" data-precio="37000" data-categoria="pinturas">
@@ -928,7 +928,7 @@
         <img src="img/PInturaAmarilla.jpeg" alt="Pintura Amarilla">
         <h3>Pintura Amarilla (Galón)</h3>
         <p class="precio">$37,000</p>
-        <button onclick="agregarAlCarrito('Pintura Amarilla (Galón)', 37000)" aria-label="Añadir Pintura Amarilla al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event,'Pintura Amarilla (Galón)', 37000)" aria-label="Añadir Pintura Amarilla al carrito">Añadir al carrito</button>
       </div>
 
       <div class="card" data-nombre="brocha grande" data-precio="15000" data-categoria="pinturas">
@@ -936,7 +936,7 @@
         <img src="img/brochaGrande.jpeg" alt="Brocha">
         <h3>Brocha Grande</h3>jpeg
         <p class="precio">$15,000</p>
-        <button onclick="agregarAlCarrito('Brocha Grande', 15000)" aria-label="Añadir Brocha Grande al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event,'Brocha Grande', 15000)" aria-label="Añadir Brocha Grande al carrito">Añadir al carrito</button>
       </div>
 
       <div class="card" data-nombre="rodillo pintura" data-precio="12000" data-categoria="pinturas">
@@ -944,7 +944,7 @@
         <img src="img/rodilloPintura.jpeg" alt="Rodillo">
         <h3>Rodillo para Pintura</h3>
         <p class="precio">$12,000</p>
-        <button onclick="agregarAlCarrito('Rodillo para Pintura', 12000)" aria-label="Añadir Rodillo para Pintura al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event,'Rodillo para Pintura', 12000)" aria-label="Añadir Rodillo para Pintura al carrito">Añadir al carrito</button>
       </div>
 
       <!-- Plomería -->
@@ -953,7 +953,7 @@
         <img src="img/tuvoPVC6m.jpeg" alt="Tuvo PVC 6m">
         <h3>Tubo PVC 6m</h3>
         <p class="precio">$25,000</p>
-        <button onclick="agregarAlCarrito('Tubo PVC 6m', 25000)" aria-label="Añadir Tubo PVC al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event,'Tubo PVC 6m', 25000)" aria-label="Añadir Tubo PVC al carrito">Añadir al carrito</button>
       </div>
 
       <div class="card" data-nombre="codos pvc" data-precio="5000" data-categoria="plomeria">
@@ -961,7 +961,7 @@
         <img src="img/codo90.jpeg" alt="Codo de 9O">
         <h3>Codo PVC 90°</h3>
         <p class="precio">$5,000</p>
-        <button onclick="agregarAlCarrito('Codo PVC 90°', 5000)" aria-label="Añadir Codo PVC al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event,'Codo PVC 90°', 5000)" aria-label="Añadir Codo PVC al carrito">Añadir al carrito</button>
       </div>
 
       <div class="card" data-nombre="llave agua" data-precio="45000" data-categoria="plomeria">
@@ -969,7 +969,7 @@
         <img src="img/llaveAgua.jpeg" alt="Lave de agua">
         <h3>Llave de Agua</h3>
         <p class="precio">$45,000</p>
-        <button onclick="agregarAlCarrito('Llave de Agua', 45000)" aria-label="Añadir Llave de Agua al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event,'Llave de Agua', 45000)" aria-label="Añadir Llave de Agua al carrito">Añadir al carrito</button>
       </div>
 
       <!-- Eléctricos -->
@@ -978,7 +978,7 @@
         <img src="img/cableElectirco.jpeg" alt="Cable Eléctrico">
         <h3>Cable Eléctrico (Metro)</h3>
         <p class="precio">$8,000</p>
-        <button onclick="agregarAlCarrito('Cable Eléctrico (Metro)', 8000)" aria-label="Añadir Cable Eléctrico al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event,'Cable Eléctrico (Metro)', 8000)" aria-label="Añadir Cable Eléctrico al carrito">Añadir al carrito</button>
       </div>
 
       <div class="card" data-nombre="interruptor luz" data-precio="12000" data-categoria="electrico">
@@ -986,7 +986,7 @@
         <img src="img/interruptor.jpeg" alt="Interruptor">
         <h3>Interruptor de Luz</h3>
         <p class="precio">$12,000</p>
-        <button onclick="agregarAlCarrito('Interruptor de Luz', 12000)" aria-label="Añadir Interruptor de Luz al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event,'Interruptor de Luz', 12000)" aria-label="Añadir Interruptor de Luz al carrito">Añadir al carrito</button>
       </div>
 
       <div class="card" data-nombre="tomacorriente" data-precio="15000" data-categoria="electrico">
@@ -994,7 +994,7 @@
         <<img src="img/tomacorriente.jpeg" alt="Martillo">
         <h3>Tomacorriente</h3>
         <p class="precio">$15,000</p>
-        <button onclick="agregarAlCarrito('Tomacorriente', 15000)" aria-label="Añadir Tomacorriente al carrito">Añadir al carrito</button>
+        <button onclick="agregarAlCarrito(event,'Tomacorriente', 15000)" aria-label="Añadir Tomacorriente al carrito">Añadir al carrito</button>
       </div>
     </div>
   </section>
@@ -1043,7 +1043,7 @@
       <span id="cart-count" class="cart-count" style="display:none;">0</span>
     </button>
     <button onclick="abrirWhatsApp()" title="Contactar por WhatsApp" aria-label="Contactar por WhatsApp">
-      <div style="font-size: 20px;">💬</div>
+      <img src="img/whatsapp.png">
     </button>
   </div>
 
@@ -1098,9 +1098,9 @@
         <h3>🌐 Síguenos</h3>
         <p>Mantente conectado con nosotros</p>
         <div class="social-links">
-          <a href="https://wa.me/573126166288" target="_blank" title="WhatsApp" aria-label="Contactar por WhatsApp">💬</a>
-          <a href="https://facebook.com" target="_blank" title="Facebook" aria-label="Síguenos en Facebook">📘</a>
-          <a href="https://instagram.com" target="_blank" title="Instagram" aria-label="Síguenos en Instagram">📷</a>
+          <a href="https://wa.me/573126166288" target="_blank" title="WhatsApp" aria-label="Contactar por WhatsApp"><img src="img/whatsapp.png" style="width: 32px; height: 32px;"></a>
+          <a href="https://facebook.com" target="_blank" title="Facebook" aria-label="Síguenos en Facebook"><img src="img/facebook.png" style="width: 32px; height: 32px;"></a>
+          <a href="https://instagram.com" target="_blank" title="Instagram" aria-label="Síguenos en Instagram"><img src="img/instagram.jpeg" style="width: 32px; height: 32px;"></a>
         </div>
         <p style="margin-top: 20px; font-size: 0.9rem; color: #999;">
           © 2024 Materiales La Bodega. Todos los derechos reservados.
@@ -1114,24 +1114,25 @@
     let categoriaActiva = 'todas';
 
     // Función para agregar producto
-    function agregarAlCarrito(nombre, precio) {
-      let item = carrito.find(p => p.nombre === nombre);
-      if (item) {
+    function agregarAlCarrito(event, nombre, precio) {
+    let item = carrito.find(p => p.nombre === nombre);
+    if (item) {
         item.cantidad++;
-      } else {
+    } else {
         carrito.push({ nombre, precio, cantidad: 1 });
-      }
-      actualizarCarrito();
-      
-      // Animación de confirmación
-      const btn = event.target;
-      const originalText = btn.innerHTML;
-      btn.innerHTML = "✅ Agregado";
-      btn.style.background = "#28a745";
-      setTimeout(() => {
-        btn.innerHTML = originalText;
-        btn.style.background = "";
-      }, 1500);
+    }
+    actualizarCarrito();
+
+    const btn = event.target;
+    const textoOriginal = btn.textContent;
+
+    btn.textContent = '✅ Agregado';
+    btn.disabled = true;
+
+    setTimeout(() => {
+        btn.textContent = textoOriginal;
+        btn.disabled = false;
+    }, 1500);
     }
 
     // Mostrar/ocultar carrito
@@ -1216,9 +1217,23 @@
         <div style="font-size: 1.4rem;">Total: ${total.toLocaleString()}</div>
         <div style="font-size: 0.9rem; color: #666;">${count} producto${count !== 1 ? 's' : ''}</div>
       `;
+
+      // Localiza el botón de pago por su ID
+    const btnPagar = document.getElementById("btn-pagar");
+
+  // Deshabilita el botón si el carrito está vacío
+    if (carrito.length === 0) {
+    btnPagar.disabled = true;
+    btnPagar.style.cursor = 'not-allowed';
+    btnPagar.textContent = 'Tu carrito está vacío';
+} else {
+    btnPagar.disabled = false;
+    btnPagar.style.cursor = 'pointer';
+    btnPagar.textContent = 'Pagar con WhatsApp';
+    }
       
-      document.getElementById("cart-count").innerText = count;
-      document.getElementById("cart-count").style.display = count > 0 ? "block" : "none";
+    document.getElementById("cart-count").innerText = count;
+    document.getElementById("cart-count").style.display = count > 0 ? "block" : "none";
     }
 
     // Mostrar modal de confirmación
@@ -1353,21 +1368,6 @@
           </div>
         `;
         productosSection.appendChild(mensaje);
-      }
-    });
-
-    // Cerrar carrito al hacer clic fuera
-    document.addEventListener('click', function(e) {
-      let carrito = document.getElementById('carritoModal');
-      let floatingButtons = document.querySelector('.floating-buttons');
-      let confirmationModal = document.getElementById('confirmationModal');
-      
-      if (carrito && !carrito.contains(e.target) && !floatingButtons.contains(e.target)) {
-        carrito.style.display = 'none';
-      }
-      
-      if (confirmationModal && confirmationModal.classList.contains('active') && !document.querySelector('.confirmation-content').contains(e.target)) {
-        cerrarConfirmacion();
       }
     });
 
